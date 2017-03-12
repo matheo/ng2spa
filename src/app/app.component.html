@@ -1,3 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<input type="text" [(ngModel)]="address" (setAddress)="getAddress($event)" googleplace placeholder="Escoja una Ciudad"/>
+
+<dl *ngIf="place">
+  <dt>City</dt>
+  <dd>{{ place.formatted_address }}</dd>
+</dl>
+
+<dl *ngIf="coords">
+  <dt>Lat</dt>
+  <dd>{{ coords.lat }}</dd>
+  <dt>Lng</dt>
+  <dd>{{ coords.lng }}</dd>
+</dl>

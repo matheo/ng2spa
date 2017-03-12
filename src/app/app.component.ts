@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public address: Object;
+  public place: Object;
+  public coords: Object;
+
+  constructor(
+    private zone: NgZone
+  ) {}
+
+  getAddress(place: Object) {
+    this.zone.run(() => {
+      console.log(place);
+      if (place['formatted_address']) {
+        this.address = place['formatted_address'];
+        this.place = place;
+        let location = place['geometry']['location'];
+        this.coords = {
+          lat: location.lat(),
+          lng: location.lng()
+        };
+        console.log("Address Object", place, this.coords);
+      } else {
+        this.place = null;
+        this.coords = null;
+      }
+    });
+  }
 }

@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { GoogleplaceDirective } from 'ng2-gmaps-places/directives/googleplace.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GoogleplaceDirective
   ],
   imports: [
     BrowserModule,
