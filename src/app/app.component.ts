@@ -16,7 +16,6 @@ export class AppComponent {
 
   getAddress(place: Object) {
     this.zone.run(() => {
-      console.log(place);
       if (place['formatted_address']) {
         this.address = place['formatted_address'];
         this.place = place;
@@ -25,7 +24,6 @@ export class AppComponent {
           lat: location.lat(),
           lng: location.lng()
         };
-        console.log("Address Object", place, this.coords);
       } else {
         this.place = null;
         this.coords = null;
