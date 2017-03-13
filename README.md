@@ -1,31 +1,26 @@
-# Ng2spa
+# Alquemedia Weather
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+Simple SPA to check the current weather on any city, with the forecast for the next three days.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The information is fetched from [OpenWeatherMAP API](https://openweathermap.org/api)
+and the design was adapted from [W3Layouts](https://w3layouts.com/sunlight-weather-responsive-widget-template/).
 
-## Code scaffolding
+## Local Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Clone the repository and execute `npm install` to fetch the required packages.
+
+Be sure to have `angular-cli` installed in your machine with `npm install -g @angular/cli`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+To get a local copy of the SPA, run:
+```
+ng build --prod --bh ./
+```
+you will get a `dist/` folder with the resources and `index.html`.
 
-## Running unit tests
+## TODO
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Customize language and metrics.
+* OpenWeatherMap translation is faulty, have to make a custom one.
+* Angular animations with a more componentized app.
