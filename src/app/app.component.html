@@ -6,7 +6,20 @@
         <img src="assets/images/logo.png" />
       </div>
       <div class="col-xs-10">
-        <input class="form-control" type="text" [(ngModel)]="address" (setAddress)="getAddress($event)" googleplace placeholder="Select a City"/>
+        <div class="input-group form-group-lg">
+          <input class="form-control" type="text" [(ngModel)]="address" (setAddress)="getAddress($event)" googleplace placeholder="Select a City"/>
+          <div class="input-group-btn">
+            <span class="btn btn-default btn-lg" *ngIf="!address && !coords">
+              <span class="glyphicon glyphicon-search"></span>
+            </span>
+            <button class="btn btn-default btn-lg" type="button" *ngIf="address" (click)="reset()">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <button class="btn btn-default btn-lg" type="button" *ngIf="coords" (click)="query()">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 

@@ -42,10 +42,11 @@ header {
 
 header img {
   min-width: 38px;
-  max-height: 34px;
+  max-height: 45px;
 }
 header .form-control {
-  font-size: 1.5em;
+  /* bootstrap mini-fix */
+  height: 45px;
 }
 
 
