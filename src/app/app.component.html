@@ -55,7 +55,7 @@
           <i class="owf owf-4x {{ day.id ? 'owf-' + day.id : '' }}"></i>
           <p>
             <span>{{ day.dt * 1000 | date:'fullDate' | firstWord }}</span>
-            {{ day.temp_max }} / {{ day.temp_min }}<sup class="degree">°</sup>
+            {{ day.temp_max }}<sup class="degree">°</sup> / {{ day.temp_min }}<sup class="degree">°</sup>
           </p>
         </div>
       </section>

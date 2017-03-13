@@ -17,6 +17,9 @@ a:hover {
 sup {
   top: -0.25em;
 }
+.degree {
+  opacity: 0.8;
+}
 
 
 html {
