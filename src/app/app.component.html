@@ -1,57 +1,56 @@
 <div class="container">
   <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
 
-    <!-- Main Container -->
     <header class="row">
       <div class="col-xs-2 text-right">
         <img src="assets/images/logo.png" />
       </div>
       <div class="col-xs-10">
-        <input class="form-control" type="text" [(ngModel)]="address" (setAddress)="getAddress($event)" googleplace placeholder="Seleccione una Ciudad"/>
+        <input class="form-control" type="text" [(ngModel)]="address" (setAddress)="getAddress($event)" googleplace placeholder="Select a City"/>
       </div>
     </header>
 
-    <main>
-      <span class="owf owf-300 owf-5x"></span>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
 
-      <h1>Popayán</h1>
-      <h2>28<sup class="degree">°</sup><small>F</small></h2>
+    <main *ngIf="weather">
+      <span class="owf {{ 'owf-' + weather.id }}"></span>
+
+      <h1>{{ city.name }}</h1>
+      <h2>{{ weather.temp }}<sup class="degree">°</sup><small>C</small></h2>
 
       <article class="row">
         <div class="col-xs-7 col-md-6">
-          <h3>Drizzle</h3>
+          <h3>{{ weather.title }}</h3>
           <p>
-            <span>light intensity drizzle</span>
+            <span>{{ weather.description }}</span>
             <br />
-            MIN<sup class="degree">°</sup> - MAX<sup class="degree">°</sup>
+            {{ weather.temp_max }}<sup class="degree">°</sup> / {{ weather.temp_min }}<sup class="degree">°</sup>
           </p>
         </div>
         <div class="col-xs-5 col-md-6 text-right">
-          <h3>12:40<small>PM</small></h3>
+          <h3>Wind at {{ weather.wind_speed }}<small>m/s</small></h3>
           <p>
-            <span>March 12</span><br />Sunday
+            <span>Humidity {{ weather.humidity }}%</span><br />Cloudiness {{ weather.cloudiness }}%
           </p>
         </div>
       </article>
 
-      <section class="row">
-        <div class="col-xs-3">
-          <i class="owf owf-900 owf-4x"></i>
-          <p><span>Sun</span> 16 / 6<sup class="degree">°</sup></p>
-        </div>
-        <div class="col-xs-3">
-          <i class="owf owf-701 owf-4x"></i>
-          <p><span>Mon</span> 18 / 6<sup class="degree">°</sup></p>
-        </div>
-        <div class="col-xs-3">
-          <i class="owf owf-522 owf-4x"></i>
-          <p><span>Tue</span> 16 / 4<sup class="degree">°</sup></p>
-        </div>
-        <div class="col-xs-3">
-          <i class="owf owf-221 owf-4x"></i>
-          <p><span>Sat</span> 11 / 7<sup class="degree">°</sup></p>
+      <section class="row" *ngIf="forecast">
+        <div *ngFor="let day of forecast" class="col-xs-3">
+          <i class="owf owf-4x {{ day.id ? 'owf-' + day.id : '' }}"></i>
+          <p>
+            <span>{{ day.dt * 1000 | date:'fullDate' | firstWord }}</span>
+            {{ day.temp_max }} / {{ day.temp_min }}<sup class="degree">°</sup>
+          </p>
         </div>
       </section>
     </main>
+
+    <footer>
+      Copyright © 2017 <a href="http://github.com/matheo">Matheo</a>.
+      Design adapted from <a href="http://w3layouts.com">W3layouts</a>
+    </footer>
   </div>
 </div>
