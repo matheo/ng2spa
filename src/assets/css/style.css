@@ -30,7 +30,6 @@ html {
   -o-background-size: cover;
   -ms-background-size: cover;
   min-height: 100%;
-  font-family: 'Nunito', sans-serif;
 }
 body {
   background: transparent;
